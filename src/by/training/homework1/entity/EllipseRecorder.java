@@ -1,18 +1,12 @@
-package by.training.homework1.entity.warehouse;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
+package by.training.homework1.entity;
 
 public class EllipseRecorder{
     private double perimeter;
     private double square;
 
-    private static final Logger logger = LogManager.getLogger(EllipseRecorder.class);
-
     public EllipseRecorder(double perimeter, double square) {
         this.perimeter = perimeter;
         this.square = square;
-        logger.debug("Ellipse recorder was created.");
     }
 
     public double getPerimeter() {
@@ -25,13 +19,10 @@ public class EllipseRecorder{
 
     public void setPerimeter(double perimeter) {
         this.perimeter = perimeter;
-        logger.debug("Perimeter was changed.");
     }
 
     public void setSquare(double square) {
         this.square = square;
-        logger.debug("Square was changed.");
-
     }
 
     @Override

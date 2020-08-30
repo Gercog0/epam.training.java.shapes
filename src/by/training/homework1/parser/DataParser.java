@@ -13,10 +13,6 @@ public class DataParser {
 
     private static final Logger logger = LogManager.getLogger(DataParser.class);
 
-    public DataParser() {
-        logger.debug("Data parser was created.");
-    }
-
     public List<List<Double>> parseData(List<String> lines) {
         List<List<Double>> ellipsesData = new ArrayList<>();
         EllipseValidator validator = new EllipseValidator();

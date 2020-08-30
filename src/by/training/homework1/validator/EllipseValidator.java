@@ -16,13 +16,9 @@ public class EllipseValidator {
 
     private static final Logger logger = LogManager.getLogger(EllipseValidator.class);
 
-    public EllipseValidator(){
-        logger.debug("EllipseValidator was created.");
-    }
-
     /**
-    Method allows you to check whether it is possible
-    to create a class object based on the passed data
+     * Method allows you to check whether it is possible
+     * to create a class object based on the passed data
      */
     public boolean isEllipseData(String data) {
         Pattern pattern = Pattern.compile(REGEX_ELLIPSE);

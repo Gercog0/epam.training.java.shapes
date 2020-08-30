@@ -1,18 +1,12 @@
 package by.training.homework1.entity;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
-
 public class CoordinatePoint {
     private double coordinateX;
     private double coordinateY;
 
-    private static final Logger logger = LogManager.getLogger(CoordinatePoint.class);
-
     public CoordinatePoint(double coordinateX, double coordinateY) {
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
-        logger.debug("CoordinatePoint was created.");
     }
 
     public double getCoordinateX() {
@@ -21,8 +15,6 @@ public class CoordinatePoint {
 
     public void setCoordinateX(double coordinateX) {
         this.coordinateX = coordinateX;
-        logger.debug("CoordinateX was changed.");
-
     }
 
     public double getCoordinateY() {
@@ -31,8 +23,6 @@ public class CoordinatePoint {
 
     public void setCoordinateY(double coordinateY) {
         this.coordinateY = coordinateY;
-        logger.debug("CoordinateY was changed.");
-
     }
 
     @Override

@@ -2,8 +2,9 @@ package by.training.homework1.entity;
 
 import by.training.homework1.observer.ObservableEllipse;
 import by.training.homework1.observer.ObserverEllipse;
-import by.training.homework1.observer.event.EllipseEvent;
+import by.training.homework1.observer.EllipseEvent;
 
+import by.training.homework1.observer.impl.EllipseObserver;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
 
@@ -23,9 +24,19 @@ public class Ellipse extends PlaneFigure implements ObservableEllipse {
         this.beginPoint = beginPoint;
         this.endPoint = endPoint;
         observers = new ArrayList<>();
+        this.attach(new EllipseObserver());
         notifyObservers(new EllipseEvent(this));
-        logger.debug("Ellipse created.");
     }
+
+    public Ellipse(int id, CoordinatePoint beginPoint, CoordinatePoint endPoint) {
+        super(id, Type.ELLIPSE);
+        this.beginPoint = beginPoint;
+        this.endPoint = endPoint;
+        observers = new ArrayList<>();
+        this.attach(new EllipseObserver());
+        notifyObservers(new EllipseEvent(this));
+    }
+
 
     public CoordinatePoint getBeginPoint() {
         return beginPoint;
@@ -35,13 +46,10 @@ public class Ellipse extends PlaneFigure implements ObservableEllipse {
         if (beginPoint == null ||
                 beginPoint.getCoordinateX() >= endPoint.getCoordinateX() ||
                 beginPoint.getCoordinateY() <= endPoint.getCoordinateY()) {
-            logger.debug("Begin point of the ellipse has not been changed.");
             return false;
         }
         this.beginPoint = beginPoint;
         notifyObservers(new EllipseEvent(this));
-        logger.debug("Begin point of the ellipse has been changed.");
-
         return true;
     }
 
@@ -53,12 +61,10 @@ public class Ellipse extends PlaneFigure implements ObservableEllipse {
         if (beginPoint == null ||
                 beginPoint.getCoordinateX() >= endPoint.getCoordinateX() ||
                 beginPoint.getCoordinateY() <= endPoint.getCoordinateY()) {
-            logger.debug("End point of the ellipse has not been changed.");
             return false;
         }
         this.endPoint = endPoint;
         notifyObservers(new EllipseEvent(this));
-        logger.debug("End point of the ellipse has been changed.");
         return true;
     }
 

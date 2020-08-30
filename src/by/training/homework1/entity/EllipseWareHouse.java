@@ -1,4 +1,4 @@
-package by.training.homework1.entity.warehouse;
+package by.training.homework1.entity;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
@@ -15,27 +15,28 @@ public class EllipseWareHouse {
 
     private EllipseWareHouse() {
         data = new HashMap<>();
-        logger.debug("Instance of EllipseWareHouse was created.");
     }
 
-    public static EllipseWareHouse createInstance() {
+    public static EllipseWareHouse getInstance() {
         if (instance == null) {
             instance = new EllipseWareHouse();
         }
         return instance;
     }
 
-    public EllipseRecorder takeDataById(int id) {
+    public EllipseRecorder getData(int id) {
         EllipseRecorder recorder = data.get(id);
         return recorder;
     }
 
     public void add(int id, EllipseRecorder parameters) {
         data.put(id, parameters);
+        logger.debug("Successful addition");
     }
 
     public void remove(int id) {
         data.remove(id);
+        logger.debug("Successful removing");
     }
 
     @Override

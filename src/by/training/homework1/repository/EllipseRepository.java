@@ -1,8 +1,7 @@
 package by.training.homework1.repository;
 
 import by.training.homework1.entity.Ellipse;
-import by.training.homework1.exception.UserException;
-import by.training.homework1.repository.specification.EllipseSpecification;
+import by.training.homework1.exception.ProjectException;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,7 +16,7 @@ public class EllipseRepository {
         ellipses = new ArrayList<>();
     }
 
-    public static EllipseRepository createInstance() {
+    public static EllipseRepository getInstance() {
         if (instance == null) {
             instance = new EllipseRepository();
         }
@@ -29,25 +28,16 @@ public class EllipseRepository {
         return newEllipses;
     }
 
-    public List<Ellipse> sort(Comparator<Ellipse> type) throws UserException {
-        if (type == null) {
-            throw new UserException("Incorrect data...");
-        }
+    public List<Ellipse> sort(Comparator<Ellipse> type) {
         List<Ellipse> sortedList = ellipses.stream().sorted(type).collect(Collectors.toList());
         return sortedList;
     }
 
-    boolean add(Ellipse ellipse) throws UserException {
-        if (ellipse == null) {
-            throw new UserException("Incorrect data...");
-        }
+    public boolean add(Ellipse ellipse) {
         return ellipses.add(ellipse);
     }
 
-    boolean remove(Ellipse ellipse) throws UserException {
-        if (ellipse == null) {
-            throw new UserException("Incorrect data...");
-        }
+    public boolean remove(Ellipse ellipse) {
         return ellipses.remove(ellipse);
     }
 }

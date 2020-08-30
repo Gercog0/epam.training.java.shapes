@@ -1,4 +1,4 @@
-package by.training.homework1.repository.specification;
+package by.training.homework1.repository;
 
 import by.training.homework1.entity.Ellipse;
 

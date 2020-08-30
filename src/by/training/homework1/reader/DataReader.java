@@ -1,7 +1,6 @@
 package by.training.homework1.reader;
 
-import by.training.homework1.exception.UserException;
-import by.training.homework1.parser.DataParser;
+import by.training.homework1.exception.ProjectException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -15,13 +14,8 @@ import java.util.stream.Collectors;
 
 public class DataReader {
     private static final String DEFAULT_PATH = "resources/data.txt";
-    private static final Logger logger = LogManager.getLogger(DataParser.class);
 
-    public DataReader() {
-        logger.debug("DataReader was created.");
-    }
-
-    public List<String> readAllData(String filePath) throws UserException {
+    public List<String> readAllData(String filePath) throws ProjectException {
         if (filePath == null || !Files.exists(Paths.get(filePath))) {
             filePath = DEFAULT_PATH;
         }
@@ -32,7 +26,7 @@ public class DataReader {
             lines = bufferedReader.lines().
                     collect(Collectors.toList());
         } catch (IOException exp) {
-            throw new UserException("Error while opening file: " + filePath, exp);
+            throw new ProjectException("Error while opening file: " + filePath, exp);
         }
         return lines;
     }

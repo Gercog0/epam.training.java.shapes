@@ -13,7 +13,7 @@ public class EllipseServiceImpl implements EllipseService {
         logger.debug("EllipseServiceImpl was created.");
     }
 
-    public static EllipseServiceImpl createInstance() {
+    public static EllipseServiceImpl getInstance() {
         if (instance == null) {
             instance = new EllipseServiceImpl();
         }
@@ -27,7 +27,7 @@ public class EllipseServiceImpl implements EllipseService {
                         - ellipse.getBeginPoint().getCoordinateX()) / 2, 2)
                         + Math.pow((ellipse.getBeginPoint().getCoordinateY()
                         - ellipse.getEndPoint().getCoordinateY()) / 2, 2)) / 2);
-        logger.debug("Perimeter calculated: {}" + perimeter);
+        logger.debug("Perimeter calculated: " + perimeter);
         return perimeter;
     }
 
@@ -38,7 +38,7 @@ public class EllipseServiceImpl implements EllipseService {
                 - ellipse.getBeginPoint().getCoordinateX()) / 2
                 * (ellipse.getBeginPoint().getCoordinateY()
                 - ellipse.getEndPoint().getCoordinateY()) / 2;
-        logger.debug("Square calculated: {}" + square);
+        logger.debug("Square calculated: " + square);
         return square;
     }
 

@@ -1,21 +1,26 @@
 package by.training.homework1.entity;
 
+import by.training.homework1.util.IdGenerator;
+
 public abstract class PlaneFigure {
     enum Type {
         TRIANGLE, QUADRANGLE, ELLIPSE;
     }
 
-    private static int count;
     private int id;
     private Type type;
 
     public PlaneFigure() {
-        count++;
-        id = count;
+        id = IdGenerator.generateId();
     }
 
     public PlaneFigure(Type type) {
         this();
+        this.type = type;
+    }
+
+    public PlaneFigure(int id, Type type) {
+        this.id = id;
         this.type = type;
     }
 
